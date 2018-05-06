@@ -1,0 +1,31 @@
+/* 公用 */
+
+.readMore {
+  text-align: right;
+  margin: 20px 10px 0 0;
+  text-decoration: underline;
+  cursor: pointer;
+  color: #d36f16;
+  &:hover{
+    opacity: 0.9;
+  }
+}
+
+/* 改写elementui */
+
+.el-menu--horizontal {
+  border-bottom: 0 !important;
+  display: inline-block;
+}
+
+.el-autocomplete-suggestion li:hover {
+  background-color: #fff !important;
+}
+
+.el-input__suffix-inner i {
+  cursor: pointer;
+}
+
+.hotCourseRight .el-card__body {
+  padding: 0 !important;
+}
