@@ -1,29 +1,30 @@
 <template>
   <div class="homeContent">
     <div class="container bgfff">
-      <div class="inner">
-        <div class="banner">
-          <el-carousel height="300px">
-            <el-carousel-item v-for="item in 4" :key="item">
-              <div class="carouselPart">
-                <div class="someText">这里是要写的话,一般banner上的字都是直接放在图片里，因为没办法确定背景的颜色</div>
-                <img src="../../images/banner.png" alt="">
-              </div>
-            </el-carousel-item>
-          </el-carousel>
-        </div>
+      <!-- <div class="inner"> -->
+      <div class="banner">
+        <el-carousel height="300px">
+          <el-carousel-item v-for="item in 4" :key="item">
+            <div class="carouselPart">
+              <div class="someText">这里是要写的话,一般banner上的字都是直接放在图片里，因为没办法确定背景的颜色</div>
+              <img src="../../images/banner.png" alt="">
+            </div>
+          </el-carousel-item>
+        </el-carousel>
       </div>
+      <!-- </div> -->
     </div>
     <div class="container bggray">
       <div class="inner">
         <h3 class="unitTitle">
+          <img src="../../images/indexicon1.png" alt="">
           <em>微</em>
           <em>课</em>
-          <div>micro courses</div>
+          <div>Micro class</div>
         </h3>
         <el-row :gutter="20">
           <el-col :span="6" v-for="(o, index) in 8" :key="index">
-            <el-card :body-style="{ padding: '0px' }">
+            <el-card :body-style="{ padding: '0px',border: 0 }" shadow="hover">
               <div class="microCoursesImg">
                 <img src="../../images/p2.png" class="image">
               </div>
@@ -42,12 +43,13 @@
     </div>
     <div class="container bgfff">
       <div class="inner">
-        <h3 class="unitTitle">
+        <h3 class="unitTitle" >
+          <i class="iconfont icon-remenx"></i>
           <em>热</em>
           <em>门</em>
           <em>教</em>
           <em>程</em>
-          <div>HOT COURSE</div>
+          <div style="padding-left: 28px;">Hot tutorials</div>
         </h3>
         <div class="hotCourse">
           <div class="hotCourseLeft">
@@ -80,9 +82,10 @@
     <div class="container bggray">
       <div class="inner">
         <h3 class="unitTitle">
+          <i class="iconfont icon-remenx"></i>
           <em>猫</em>
           <em>屋</em>
-          <div>CAT HOUSE</div>
+          <div>Cat house</div>
         </h3>
         <div class="catHouse">
           <div class="catHouseTitle">
@@ -311,6 +314,15 @@ export default {
     line-height: 36px;
     text-align: center;
     margin-bottom: 24px;
+    >i{
+      font-size: 20px;
+      color: #fa514b;
+    }
+    > img {
+      width: 40px;
+      position: relative;
+      top: 3px;
+    }
     em {
       font-size: 20px;
       font-weight: 600;
@@ -320,6 +332,8 @@ export default {
     }
     div {
       line-height: normal;
+      padding-left: 43px;
+      margin-top: -5px;
     }
   }
   .banner {
@@ -487,7 +501,8 @@ export default {
         flex: 1;
         padding: 5px 10px;
       }
-      .contentLeft ,.contentRight{
+      .contentLeft,
+      .contentRight {
         border-right: 1px solid #e4e4e4;
         height: 500px;
         overflow-x: hidden;

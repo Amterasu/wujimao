@@ -4,23 +4,11 @@
       <div class="logo">
         <img src="../../images/logo.png" alt="">
       </div>
-      <el-menu :default-active="activeIndex" mode="horizontal" @select="handleSelect">
-        <el-menu-item index="1">首页</el-menu-item>
-        <el-submenu index="2">
-          <template slot="title">微课</template>
-          <el-menu-item index="2-1">选项1</el-menu-item>
-          <el-menu-item index="2-2">选项2</el-menu-item>
-          <el-menu-item index="2-3">选项3</el-menu-item>
-          <el-submenu index="2-4">
-            <template slot="title">选项4</template>
-            <el-menu-item index="2-4-1">选项1</el-menu-item>
-            <el-menu-item index="2-4-2">选项2</el-menu-item>
-            <el-menu-item index="2-4-3">选项3</el-menu-item>
-          </el-submenu>
-        </el-submenu>
-        <el-menu-item index="3">教程</el-menu-item>
-        <el-menu-item index="4">社区</el-menu-item>
-        <el-menu-item index="5">屋脊猫</el-menu-item>
+      <el-menu :default-active="activeIndex" mode="horizontal" @select="handleSelect" router>
+        <el-menu-item index="HomePage" :route="{name: 'HomePage'}">首页</el-menu-item>
+        <el-menu-item index="MicroClassPage" :route="{name : 'MicroClassPage'}">微课</el-menu-item>
+        <el-menu-item index="CoursePage" :route="{name : 'CoursePage'}">教程</el-menu-item>
+        <el-menu-item index="CommunityPage" :route="{name : 'CommunityPage'}">社区</el-menu-item>
       </el-menu>
       <div class="autoComplete">
         <el-autocomplete popper-class="my-autocomplete" v-model="keyword" :fetch-suggestions="querySearch" placeholder="请输入内容" @select="showSelected">
@@ -46,7 +34,6 @@
 export default {
   data() {
     return {
-      activeIndex: "1",
       keyword: "",
       restaurants: []
     };
@@ -58,8 +45,8 @@ export default {
     turnToPage() {
       console.log("跳转路由");
     },
-    showSelected(item){
-      this.keyword = item.content
+    showSelected(item) {
+      this.keyword = item.content;
     },
     querySearch(queryString, cb) {
       let restaurants = this.restaurants;
@@ -73,8 +60,9 @@ export default {
     createFilter(queryString) {
       return restaurant => {
         return (
-          restaurant.content.toLowerCase().indexOf(queryString.toLowerCase()) ===
-          0
+          restaurant.content
+            .toLowerCase()
+            .indexOf(queryString.toLowerCase()) === 0
         );
       };
     },
@@ -84,6 +72,11 @@ export default {
         { unit: "教程", content: "教程从去门到精通" },
         { unit: "文章", content: "文章从去门到精通" }
       ];
+    }
+  },
+  computed: {
+    activeIndex() {
+      return  this.$route.name ;
     }
   },
   mounted() {
